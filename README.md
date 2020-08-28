@@ -1,5 +1,4 @@
 # image-gallery
-Online image gallery. Full-stack application using Spring and Angular.
 
 Online photo-gallery. Full-stack application using Spring and Angular.
 
