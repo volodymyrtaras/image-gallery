@@ -1,0 +1,50 @@
+<button class="btn btn-info logg-off-button" (click)="logout()">Logout</button>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h3>Upload Image</h3>
+      <div class="form-group">
+        <input type="file" name="image" (change)="fileProgress($event)"/>
+      </div>
+      <div *ngIf="fileUploadProgress">
+        Upload progress: {{ fileUploadProgress }}
+      </div>
+      <div class="image-preview mb-3" *ngIf="previewUrl">
+        <img [src]="previewUrl" height="300"/>
+      </div>
+
+      <div *ngIf="previewUrl">
+        <input id="tags" type="text" (keyup.enter)="addTag($event)" [(ngModel)]="defaultTagValue" class="form-control"
+               placeholder="Add tags via ↵ Enter">
+      </div>
+
+      <div class="mb-3" *ngIf="uploadedFilePath">
+        {{uploadedFilePath}}
+      </div>
+
+      <div id="upload-button" class="form-group">
+        <button [disabled]="!previewUrl" class="btn btn-primary" (click)="onSubmit()">Upload</button>
+      </div>
+
+      <div *ngIf="!previewUrl">
+        <input id="search-input" type="text" (keypress)="addSearchTag($event)" [(ngModel)]="searchValue"
+               class="form-control" placeholder="Search via tag">
+      </div>
+
+      <div class="form-group" *ngIf="!previewUrl">
+        <button [disabled]="!searchValue" class="btn btn-primary" (click)="onSearch()">
+          Search
+        </button>
+        <button [disabled]="!searchValue" class="btn btn-primary float-right" (click)="reload()">Show all</button>
+      </div>
+    </div>
+  </div>
+</div>
+<br>
+<div class="gallery-container" infiniteScroll [infiniteScrollDistance]="2" [infiniteScrollThrottle]="50">
+  <mat-grid-list cols="3" rowHeight="2:1">
+    <mat-grid-tile *ngFor='let i of images'>
+      <img [src]='i.url' class="tile-image" (click)="goToImageUrl(i.url)">
+    </mat-grid-tile>
+  </mat-grid-list>
+</div>

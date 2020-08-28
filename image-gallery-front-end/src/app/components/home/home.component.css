@@ -1,0 +1,44 @@
+.logg-off-button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+.greeting {
+  margin: 15px;
+}
+
+h3 {
+  margin-top: 15px;
+}
+
+.gallery-container {
+  margin-left: 60px;
+  margin-right: 60px;
+}
+
+.tile-image {
+  width: 100%;
+  height: auto;
+}
+
+.tile-image:hover {
+  color: #424242;
+  -webkit-transition: all .3s ease-in;
+  -moz-transition: all .3s ease-in;
+  -ms-transition: all .3s ease-in;
+  -o-transition: all .3s ease-in;
+  transition: all .3s ease-in;
+  opacity: 1;
+  transform: scale(1.15);
+  -ms-transform: scale(1.15); /* IE 9 */
+  -webkit-transform: scale(1.15); /* Safari and Chrome */
+}
+
+#tags, #search-input {
+  margin-bottom: 15px;
+}
+
+#upload-button {
+  margin-top: 10px;
+}
